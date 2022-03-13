@@ -14,4 +14,11 @@ node scripts/sample-script.js
 npx hardhat help
 ```
 
-address721 = '0x54868693F4DBc2ECd5fb22396cd2eFdDFCE05944'
+```shell
+address721 = '0x54868693F4DBc2ECd5fb22396cd2eFdDFCE05944' id = "1-5"
+address1155 = '0x8f5A73D804efA9789928EC19E8cBC95EfA774077' id = "1-5"
+```
+
+```shell
+https://testnets.opensea.io/assets/${address}/${id}
+```
