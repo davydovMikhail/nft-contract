@@ -1,4 +1,3 @@
-require("@nomiclabs/hardhat-web3");
 
 async function main() {
 

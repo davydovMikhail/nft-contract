@@ -44,3 +44,21 @@ describe("ERC721", function () {
     expect(await token721.balanceOf(owner.address)).to.equal(2);
   })
 });
+
+describe("ERC1155", function () {
+  beforeEach(async () => {
+    [owner, user1, user2, user3] = await ethers.getSigners()
+    baseURI = "https://ipfs.io/ipfs/QmRKCmNgjB5szFBKpNV7qdNDLYqcptzLVmFsVV7h82DKn1/"
+    let Token1155F = await ethers.getContractFactory("Token1155")  
+    token1155 = await Token1155F.connect(owner).deploy(baseURI)
+    await token1155.connect(owner).mint(owner.address)
+  })
+
+  it("uri and setNewBaseURI", async function () {
+    const someID = 2
+    expect(await token1155.uri(someID)).to.equal(`${baseURI}${someID}.json`);
+    const newBaseURI = "https://ipfs.io/ipfs/QmRKCmNgjB5szFBKpNV7qdNDLYqwertyqwertyqwertyqw/"
+    await token1155.connect(owner).setNewBaseURI(newBaseURI)
+    expect(await token1155.uri(someID)).to.equal(`${newBaseURI}${someID}.json`);
+  });
+});
